@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Access & Search Portal | Amarie Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .portal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .portal-card {
+      background: rgba(30, 41, 59, 0.55);
+      backdrop-filter: blur(12px);
+      border: var(--glass-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .input-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .form-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.8rem 1.2rem;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .form-input:focus {
+      border-color: var(--accent-primary);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    .engine-select {
+      padding: 0.8rem 1.2rem;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .iframe-container {
+      width: 100%;
+      height: 500px;
+      border: var(--glass-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-top: 2rem;
+      display: none;
+      position: relative;
+    }
+    .iframe-header {
+      background: #f1f5f9;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 0.9rem;
+    }
+    .qr-container {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(15, 23, 42, 0.4);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 2rem;
+    }
+    .qr-code-img {
+      background: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="search_portal.html" class="active">Search Portal</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+    </div>
+  </nav>
+
+  <!-- Portal Section -->
+  <section class="section animate-fade-up" style="padding-top: 120px; min-height: 100vh;">
+    <div class="portal-container">
+      
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 3rem; color: var(--text-primary);">Web Search & Access Portal</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">Quickly search the web, visit external pages, or scan the QR code to open this portal on your phone.</p>
+      </div>
+
+      <div class="portal-card">
+        
+        <!-- Search Engine Box -->
+        <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class='bx bx-search-alt' style="color: var(--accent-primary);"></i> Search Engine Launcher
+        </h3>
+        <div class="input-group">
+          <div class="input-row">
+            <select id="search-engine" class="engine-select">
+              <option value="google">Google</option>
+              <option value="duckduckgo">DuckDuckGo</option>
+              <option value="bing">Bing</option>
+              <option value="yahoo">Yahoo</option>
+            </select>
+            <input type="text" id="search-query" class="form-input" placeholder="Type your search query here..." required>
+            <button id="btn-search" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); margin: 2rem 0;"></div>
+
+        <!-- Browser Launcher Box -->
+        <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class='bx bx-globe' style="color: var(--accent-secondary);"></i> Browser & URL Redirector
+        </h3>
+        <div class="input-group">
+          <div class="input-row">
+            <input type="text" id="browser-url" class="form-input" placeholder="Enter URL (e.g. github.com, wikipedia.org)..." required>
+            <button id="btn-launch" class="btn btn-primary">Launch URL</button>
+            <button id="btn-preview" class="btn btn-outline">Preview Inline</button>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">
+            Note: "Preview Inline" uses an iframe. Many secure websites (like Google, GitHub) prohibit embedding inside frames and will show blank. Use "Launch URL" for full compatibility.
+          </p>
+        </div>
+
+        <!-- IFrame Preview Box -->
+        <div class="iframe-container" id="preview-box">
+          <div class="iframe-header">
+            <span id="preview-url-display">Preview Window</span>
+            <span style="cursor: pointer;" onclick="closePreview()"><i class='bx bx-x' style="font-size: 1.5rem;"></i></span>
+          </div>
+          <iframe id="preview-iframe" src="" style="width: 100%; height: calc(100% - 35px); border: none;"></iframe>
+        </div>
+
+        <!-- Mobile Phone Access Section -->
+        <div class="qr-container">
+          <div id="qr-code-box">
+            <img id="qr-image" src="" alt="Dynamic QR Code" class="qr-code-img">
+          </div>
+          <div style="flex: 1;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+              <i class='bx bx-mobile-alt' style="color: var(--success-color);"></i> Access on Phone
+            </h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+              Scan the QR code with your phone's camera to instantly launch this portal on your mobile device. Ensure your phone is connected to the same Wi-Fi network.
+            </p>
+            <div style="background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: var(--accent-primary);">
+              Current Link: <span id="current-url-display">Generating...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border);">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier.</p>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Management
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', currentTheme);
+    
+    // Toggle theme icon based on current theme
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.querySelector('i').className = currentTheme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+      themeBtn.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+      });
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    // Search Engine Launchers
+    const btnSearch = document.getElementById('btn-search');
+    const searchQuery = document.getElementById('search-query');
+    const searchEngine = document.getElementById('search-engine');
+
+    btnSearch.addEventListener('click', () => {
+      const query = encodeURIComponent(searchQuery.value.trim());
+      if (!query) return;
+
+      let searchUrl = '';
+      switch (searchEngine.value) {
+        case 'google':
+          searchUrl = `https://www.google.com/search?q=${query}`;
+          break;
+        case 'duckduckgo':
+          searchUrl = `https://duckduckgo.com/?q=${query}`;
+          break;
+        case 'bing':
+          searchUrl = `https://www.bing.com/search?q=${query}`;
+          break;
+        case 'yahoo':
+          searchUrl = `https://search.yahoo.com/search?p=${query}`;
+          break;
+      }
+      window.open(searchUrl, '_blank');
+    });
+
+    // Enter Key search
+    searchQuery.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') btnSearch.click();
+    });
+
+    // Browser Redirector
+    const btnLaunch = document.getElementById('btn-launch');
+    const btnPreview = document.getElementById('btn-preview');
+    const browserUrl = document.getElementById('browser-url');
+    const previewBox = document.getElementById('preview-box');
+    const previewIframe = document.getElementById('preview-iframe');
+    const previewUrlDisplay = document.getElementById('preview-url-display');
+
+    function formatUrl(url) {
+      url = url.trim();
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+      return url;
+    }
+
+    btnLaunch.addEventListener('click', () => {
+      const url = browserUrl.value.trim();
+      if (!url) return;
+      window.open(formatUrl(url), '_blank');
+    });
+
+    browserUrl.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') btnLaunch.click();
+    });
+
+    btnPreview.addEventListener('click', () => {
+      const url = browserUrl.value.trim();
+      if (!url) return;
+      
+      const formatted = formatUrl(url);
+      previewUrlDisplay.textContent = `Browsing: ${formatted}`;
+      previewIframe.src = formatted;
+      previewBox.style.display = 'block';
+      previewBox.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function closePreview() {
+      previewBox.style.display = 'none';
+      previewIframe.src = '';
+    }
+
+    // Dynamic QR Code Generation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUrl = window.location.href;
+      document.getElementById('current-url-display').textContent = currentUrl;
+
+      // QR Code Generator API
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(currentUrl)}`;
+      document.getElementById('qr-image').src = qrApiUrl;
+    });
+  </script>
+</body>
+</html>

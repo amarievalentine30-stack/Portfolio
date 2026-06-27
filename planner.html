@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planner | Amarie Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" class="active">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+    </div>
+  </nav>
+
+  <section class="section animate-fade-up" style="padding-top: 120px; min-height: 100vh;">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 3rem;">Academic Planner</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">Manage your assignments, labs, and study sessions efficiently.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-2" style="margin-bottom: 2rem;">
+        <div class="glass-card" style="text-align: center; padding: 1.5rem;">
+          <h3 style="font-size: 2.5rem; color: var(--accent-primary);" id="stat-total">0</h3>
+          <p style="color: var(--text-secondary);">Total Tasks</p>
+        </div>
+        <div class="glass-card" style="text-align: center; padding: 1.5rem;">
+          <h3 style="font-size: 2.5rem; color: var(--success-color);" id="stat-completed">0</h3>
+          <p style="color: var(--text-secondary);">Completed</p>
+        </div>
+      </div>
+
+      <!-- Add Task Form -->
+      <div class="glass-card" style="margin-bottom: 2rem;">
+        <form id="task-form" style="display: flex; gap: 1rem;">
+          <input type="text" id="task-input" class="form-control" placeholder="What needs to be done? (e.g., Complete Python script)" required>
+          <button type="submit" class="btn btn-primary" style="white-space: nowrap;"><i class='bx bx-plus'></i> Add Task</button>
+        </form>
+      </div>
+
+      <!-- Task List -->
+      <ul id="task-list" style="padding: 0;">
+        <!-- Tasks will be rendered here by script.js -->
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border); margin-top: 4rem;">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-github'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-twitter'></i></a>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

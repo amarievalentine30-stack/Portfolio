@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Amarie Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+    </div>
+  </nav>
+
+  <section class="section animate-fade-up" style="padding-top: 120px; min-height: 100vh;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 3rem;">My Projects</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">A showcase of my work in Web Development and Security.</p>
+      </div>
+
+      <!-- Filters -->
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap;">
+        <button class="btn btn-outline filter-btn active" data-filter="all">All</button>
+        <button class="btn btn-outline filter-btn" data-filter="web">Web Dev</button>
+        <button class="btn btn-outline filter-btn" data-filter="design">Graphic Design</button>
+        <button class="btn btn-outline filter-btn" data-filter="security">Security</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-3" id="projects-grid">
+        
+        <!-- Project 1: Unique Graphic Design Project -->
+        <div class="glass-card project-card" data-category="design" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <img src="assets/images/project_design.png" alt="Creative Graphic Design Project" style="height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.8rem; background: rgba(236, 72, 153, 0.2); color: #ec4899; padding: 0.2rem 0.6rem; border-radius: 4px;">Graphic Design</span>
+              <span style="font-size: 0.8rem; background: rgba(168, 85, 247, 0.2); color: #a855f7; padding: 0.2rem 0.6rem; border-radius: 4px;">Creative</span>
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Creative Brand Identity</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex: 1;">
+              A small unique graphic design project focused on creating a modern, minimalist visual identity, including custom vector logos, typography guidelines, and digital marketing assets.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: auto;">
+              <a href="#" class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">View Project</a>
+              <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class='bx bxl-behance'></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Fashion Website -->
+        <div class="glass-card project-card" data-category="web" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <img src="assets/images/project_fashion.png" alt="Fashion Store Website" style="height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.8rem; background: rgba(249, 115, 22, 0.2); color: #f97316; padding: 0.2rem 0.6rem; border-radius: 4px;">E-Commerce</span>
+              <span style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.2); color: var(--accent-primary); padding: 0.2rem 0.6rem; border-radius: 4px;">HTML/CSS</span>
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Valentine Fashion Hub</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex: 1;">
+              A modern fashion website designed by Amarie Valentine. Focuses on selling affordable clothes and shoes priced in USD. Features a clean, accessible layout for shoppers.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: auto;">
+              <a href="#" class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">Shop Now</a>
+              <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class='bx bxl-github'></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Securing Web Portal -->
+        <div class="glass-card project-card" data-category="security" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <img src="assets/images/project_3.png" alt="Aether Security Dashboard Portal" style="height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.8rem; background: rgba(16, 185, 129, 0.2); color: var(--success-color); padding: 0.2rem 0.6rem; border-radius: 4px;">Security Monitoring</span>
+              <span style="font-size: 0.8rem; background: rgba(139, 92, 246, 0.2); color: var(--accent-secondary); padding: 0.2rem 0.6rem; border-radius: 4px;">HTML/JS</span>
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Securing Web Portal</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex: 1;">
+              A secure web portal and network traffic monitor designed to visualize active nodes, track bandwidth usage, and perform AI-driven anomaly detection in real-time. Built with interactive HTML/CSS and JavaScript.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: auto;">
+              <a href="securing_web_portal.html" class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">Launch Portal</a>
+              <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class='bx bxl-github'></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border); margin-top: 4rem;">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-github'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-twitter'></i></a>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

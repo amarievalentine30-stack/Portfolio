@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Securing Web Portal | Amarie Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    /* Custom Styling for the Cyber Security Portal */
+    .portal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .cyber-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cyber-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    }
+    .terminal-output {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      font-family: monospace;
+      padding: 1.5rem;
+      color: #38bdf8;
+      height: 250px;
+      overflow-y: auto;
+      margin-bottom: 1.5rem;
+    }
+    .log-entry {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .log-info { color: #38bdf8; }
+    .log-warning { color: #fbbf24; }
+    .log-danger { color: #ef4444; }
+    .log-success { color: #34d399; }
+    
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+    }
+    .status-safe { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .status-alert { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat-box {
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin: 0.5rem 0;
+    }
+    
+    /* Login Simulation Overlay */
+    .login-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      transition: opacity 0.5s ease, visibility 0.5s;
+    }
+    .login-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .login-box {
+      max-width: 400px;
+      width: 100%;
+      padding: 2.5rem;
+      background: var(--bg-secondary);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+    </div>
+  </nav>
+
+  <!-- Portal Body -->
+  <section class="section animate-fade-up" style="padding-top: 120px; min-height: 100vh;">
+    <div class="portal-container">
+      
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 3rem; color: var(--text-primary);">Aether Security Portal</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">Securing the digital frontier through network traffic overview and AI anomaly detection.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="amarievalentine_portfolio.pdf" download class="btn btn-outline" style="font-size: 0.9rem;">
+            <i class='bx bxs-file-pdf' style="font-size: 1.2rem; vertical-align: middle;"></i> Download Full Portfolio PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="cyber-card" style="min-height: 500px; position: relative;">
+        
+        <!-- Mock Login Screen -->
+        <div class="login-overlay" id="login-overlay">
+          <div class="login-box">
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <i class='bx bx-shield-quarter' style="font-size: 3rem; color: var(--accent-primary);"></i>
+              <h2 style="margin-top: 1rem;">Admin Auth Required</h2>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Authenticate to access Aether Security Dashboard</p>
+            </div>
+            
+            <form id="portal-login-form">
+              <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Operator ID</label>
+                <input type="text" id="operator-id" class="form-control" placeholder="e.g., AV-889" required style="width: 100%; padding: 0.8rem; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px;">
+              </div>
+              <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Security Key</label>
+                <input type="password" id="security-key" class="form-control" placeholder="••••••••" required style="width: 100%; padding: 0.8rem; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px;">
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">Establish Secure Link</button>
+              <div id="login-error" style="color: var(--error-color); margin-top: 1rem; text-align: center; display: none; font-size: 0.9rem;"></div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Dashboard Console (Visible after Login) -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="margin: 0; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class='bx bx-lock-open-alt' style="color: var(--success-color);"></i> Access Granted
+              </h2>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">Active Session: Operator <span id="session-operator" style="color: var(--accent-primary); font-weight: 600;">AV-889</span></p>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="status-indicator status-safe" id="system-status">
+                <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite;"></span>
+                FIREWALL ACTIVE
+              </span>
+              <button id="logout-btn" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Secure Terminate</button>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="dashboard-grid">
+            <div class="stat-box">
+              <i class='bx bx-wifi' style="font-size: 1.8rem; color: var(--accent-primary);"></i>
+              <div class="stat-number" id="stat-traffic">1.2 TB/s</div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Network Throughput</p>
+            </div>
+            <div class="stat-box">
+              <i class='bx bx-server' style="font-size: 1.8rem; color: var(--accent-secondary);"></i>
+              <div class="stat-number">48,102</div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Active Nodes</p>
+            </div>
+            <div class="stat-box">
+              <i class='bx bx-radar' style="font-size: 1.8rem; color: var(--error-color);"></i>
+              <div class="stat-number" id="stat-anomalies">0</div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Detected Anomalies</p>
+            </div>
+          </div>
+
+          <!-- Live Log Console -->
+          <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class='bx bx-code-block'></i> Live Security Event Log
+          </h3>
+          <div class="terminal-output" id="terminal-log">
+            <div class="log-entry log-success">[INIT] Establishing VPN tunnel to security gateway...</div>
+            <div class="log-entry log-success">[INIT] Handshake verified. Aether security layer configured.</div>
+            <div class="log-entry log-info">[MONITOR] Port 443 incoming traffic clean.</div>
+            <div class="log-entry log-info">[MONITOR] Network integrity check: 100% stable.</div>
+          </div>
+
+          <!-- Interactive Actions -->
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="trigger-scan" class="btn btn-primary"><i class='bx bx-scan'></i> Execute Port Scan</button>
+            <button id="trigger-alert" class="btn btn-outline" style="border-color: var(--error-color); color: var(--error-color);"><i class='bx bx-error-alt'></i> Simulate Intrusion</button>
+            <button id="clear-logs" class="btn btn-outline"><i class='bx bx-trash'></i> Clear Console</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border);">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier.</p>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Management
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', currentTheme);
+    
+    // Toggle theme icon based on current theme
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.querySelector('i').className = currentTheme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+      themeBtn.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+      });
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    // Portal Simulation Logic
+    const loginForm = document.getElementById('portal-login-form');
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginError = document.getElementById('login-error');
+    const opInput = document.getElementById('operator-id');
+    const keyInput = document.getElementById('security-key');
+    const sessionOp = document.getElementById('session-operator');
+    const logoutBtn = document.getElementById('logout-btn');
+    const termLog = document.getElementById('terminal-log');
+    const triggerScan = document.getElementById('trigger-scan');
+    const triggerAlert = document.getElementById('trigger-alert');
+    const clearLogs = document.getElementById('clear-logs');
+    const sysStatus = document.getElementById('system-status');
+    const trafficStat = document.getElementById('stat-traffic');
+    const anomaliesStat = document.getElementById('stat-anomalies');
+
+    let isScanRunning = false;
+    let anomalyCount = 0;
+
+    // Check if operator is already authenticated in session
+    if (sessionStorage.getItem('portal_auth') === 'true') {
+      loginOverlay.classList.add('hidden');
+      sessionOp.textContent = sessionStorage.getItem('operator_id') || 'AV-889';
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const opId = opInput.value.trim();
+      const secKey = keyInput.value;
+
+      // Acceptance: simple authentication for simulation
+      if (opId.length >= 4 && secKey.length >= 4) {
+        sessionStorage.setItem('portal_auth', 'true');
+        sessionStorage.setItem('operator_id', opId);
+        sessionOp.textContent = opId;
+        loginOverlay.classList.add('hidden');
+        addLog(`[AUTH] Operator ${opId} authenticated successfully.`, 'success');
+        addLog(`[SYSTEM] Encrypted security link established.`, 'info');
+      } else {
+        loginError.textContent = "Invalid operator ID or credentials (min. 4 characters).";
+        loginError.style.display = 'block';
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('portal_auth');
+      sessionStorage.removeItem('operator_id');
+      loginOverlay.classList.remove('hidden');
+      loginForm.reset();
+      loginError.style.display = 'none';
+    });
+
+    function addLog(text, type = 'info') {
+      const time = new Date().toLocaleTimeString();
+      const div = document.createElement('div');
+      div.className = `log-entry log-${type}`;
+      div.textContent = `[${time}] ${text}`;
+      termLog.appendChild(div);
+      termLog.scrollTop = termLog.scrollHeight;
+    }
+
+    // Trigger Port Scan Simulation
+    triggerScan.addEventListener('click', () => {
+      if (isScanRunning) return;
+      isScanRunning = true;
+      triggerScan.disabled = true;
+      addLog('[SCAN] Initializing full port scan on local subnet...', 'info');
+      
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 20;
+        addLog(`[SCAN] Scanning subnet range... ${progress}% complete.`, 'info');
+        trafficStat.textContent = (1.2 + (Math.random() * 0.8)).toFixed(2) + " TB/s";
+        
+        if (progress >= 100) {
+          clearInterval(interval);
+          isScanRunning = false;
+          triggerScan.disabled = false;
+          addLog('[SCAN] Port scan completed. 0 vulnerability vectors open on active ports.', 'success');
+        }
+      }, 800);
+    });
+
+    // Simulate Intrusion Alert
+    triggerAlert.addEventListener('click', () => {
+      anomalyCount++;
+      anomaliesStat.textContent = anomalyCount;
+      sysStatus.className = "status-indicator status-alert";
+      sysStatus.innerHTML = `<span style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 0.5s infinite;"></span> INTRUSION ATTEMPT`;
+      addLog(`[ALERT] Unauthorized access attempt detected from IP 192.168.1.189!`, 'danger');
+      addLog(`[DEFENSE] Auto-blocking host IP. Port 80 access suspended.`, 'warning');
+      
+      // Auto resolve alert after 4 seconds
+      setTimeout(() => {
+        addLog(`[RESOLVED] Intrusion threat neutralized. IP has been permanently blacklisted.`, 'success');
+        sysStatus.className = "status-indicator status-safe";
+        sysStatus.innerHTML = `<span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite;"></span> SYSTEM PROTECTED`;
+      }, 4000);
+    });
+
+    clearLogs.addEventListener('click', () => {
+      termLog.innerHTML = `<div class="log-entry log-info">[MONITOR] Console cleared. Integrity checks running...</div>`;
+    });
+  </script>
+
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+  </style>
+</body>
+</html>

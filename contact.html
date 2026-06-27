@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Amarie Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+    </div>
+  </nav>
+
+  <section class="section animate-fade-up" style="padding-top: 120px; min-height: 100vh;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h1 style="font-size: 3rem;">Get In Touch</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">Interested in collaborating or have a question? I'd love to hear from you.</p>
+      </div>
+
+      <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto; gap: 4rem;">
+        
+        <!-- Contact Info -->
+        <div>
+          <div style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--accent-primary);">Contact Information</h3>
+            <p style="color: var(--text-secondary);">Fill out the form and I will get back to you within 24 hours.</p>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 1.5rem;">
+                <i class='bx bx-envelope'></i>
+              </div>
+              <div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Email</p>
+                <p style="font-weight: 500; margin: 0;">amarievalentine30@gmail.com</p>
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: var(--success-color); font-size: 1.5rem;">
+                <i class='bx bx-current-location'></i>
+              </div>
+              <div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Location</p>
+                <p style="font-weight: 500; margin: 0;">Lagos, Nigeria</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 3rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Follow my journey:</p>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i class='bx bxl-github'></i></a>
+              <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i class='bx bxl-linkedin'></i></a>
+              <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i class='bx bxl-twitter'></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number (Digits Only)</label>
+              <input type="tel" id="phone" class="form-control" placeholder="08012345678">
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="How can I help you?"></textarea>
+            </div>
+            
+            <!-- Feedback box injected by script.js -->
+            <div id="form-feedback" style="display: none;"></div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border); margin-top: 4rem;">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-github'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-twitter'></i></a>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

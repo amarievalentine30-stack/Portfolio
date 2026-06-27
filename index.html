@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amarie Valentine | Portfolio</title>
+  <meta name="description" content="Personal academic portfolio and student management platform for Amarie Valentine.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Boxicons for high-quality SVG icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.</a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+            <i class='bx bx-moon'></i>
+          </button>
+        </li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="section hero animate-fade-up"
+    style="min-height: 100vh; display: flex; align-items: center; padding-top: 100px;">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+
+        <div class="hero-content">
+          <h4 style="color: var(--accent-primary); font-family: var(--font-body); letter-spacing: 2px;">ASPIRING SOC
+            ANALYST</h4>
+          <h1 style="font-size: 4rem; margin: 1rem 0;">Hi, I'm <br><span class="logo">Amarie Valentine</span></h1>
+          <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            Driven Cybersecurity student specializing in network protection and security monitoring. Combining a solid
+            foundation in web technologies and Python with a passion for offensive security and threat intelligence to
+            monitor, analyze, and mitigate digital threats.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="projects.html" class="btn btn-primary">View My Work <i class='bx bx-right-arrow-alt'></i></a>
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+            <a href="amarievalentine_portfolio.pdf" download class="btn btn-outline"
+              style="border-color: var(--accent-secondary); color: var(--accent-secondary);"><i
+                class='bx bxs-file-pdf'></i> Download PDF Portfolio</a>
+          </div>
+
+          <div style="margin-top: 3rem; display: flex; gap: 2rem;">
+            <div>
+              <h3 style="margin-bottom: 0;">4.65</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Current GPA</p>
+            </div>
+            <div>
+              <h3 style="margin-bottom: 0;">3</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Projects Completed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image" style="position: relative;">
+          <!-- Using the user's real portrait -->
+          <div
+            style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: var(--glass-border);">
+            <img src="valentine animated.png" alt="Amarie Valentine - Cybersecurity Student"
+              style="width: 100%; height: auto; object-fit: cover;">
+          </div>
+
+          <div class="glass-card"
+            style="position: absolute; bottom: -20px; left: -20px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem;">
+            <i class='bx bx-shield-quarter' style="font-size: 2rem; color: var(--accent-primary);"></i>
+            <div>
+              <p style="font-weight: 600; margin: 0;">Cybersecurity</p>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">SOC Analyst</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome Banner Section -->
+  <section class="section bg-secondary" style="background-color: var(--bg-secondary); padding: 4rem 0;">
+    <div class="container text-center">
+      <h2 style="text-align: center; margin-bottom: 2.5rem;">Welcome</h2>
+      <div
+        style="max-width: 800px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.25); border: var(--glass-border);">
+        <img src="assets/images/welcome_banner.png" alt="Welcome to My Portfolio"
+          style="width: 100%; height: auto; display: block; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border);">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Designing the future, one line of code at a time.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-github'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#" style="font-size: 1.5rem; color: var(--text-secondary);"><i class='bx bxl-twitter'></i></a>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
