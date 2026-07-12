@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Fashion Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .fashion-header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #f9a8d4, #fbcfe8);
+      color: #333;
+      margin-top: 80px;
+    }
+    .fashion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .fashion-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      padding-bottom: 1.5rem;
+    }
+    .fashion-item img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+    .fashion-item h3 {
+      color: #333;
+      margin: 1rem 0 0.5rem;
+    }
+    .fashion-item p {
+      color: #666;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .fashion-btn {
+      background: #f472b6;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .fashion-btn:hover {
+      background: #db2777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">AV.&hearts;</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="fashion-header">
+    <h1>Valentine Fashion Hub</h1>
+    <p>Discover the latest trends in affordable fashion.</p>
+  </div>
+
+  <div class="fashion-grid">
+    <div class="fashion-item">
+      <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=500&q=80" alt="Summer Dress">
+      <h3>Summer Dress</h3>
+      <p>$25.00</p>
+      <a href="#" class="fashion-btn">Add to Cart</a>
+    </div>
+    <div class="fashion-item">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Casual Tee">
+      <h3>Casual Tee</h3>
+      <p>$15.00</p>
+      <a href="#" class="fashion-btn">Add to Cart</a>
+    </div>
+    <div class="fashion-item">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sneakers">
+      <h3>Sneakers</h3>
+      <p>$40.00</p>
+      <a href="#" class="fashion-btn">Add to Cart</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--nav-bg); padding: 3rem 0; text-align: center; border-top: var(--glass-border); margin-top: 4rem;">
+    <div class="container">
+      <h3 class="logo" style="margin-bottom: 1rem;">AV.&hearts;</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Securing the digital frontier & Fashionably late.</p>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2026 Amarie Valentine. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
